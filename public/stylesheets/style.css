@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Lato);
+body {
+	font-family: 'Lato', sans-serif;
+	font-size: 11px;
+}
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+#sidebar {
+	background-color: rgba(255,255,255,0.8);
+	border-right:10px solid #999;
+	height:100%;
+	position: absolute;
+	width: 240px;
+}
+#sidebar strong {
+	display: block;
+	clear: both;
+	margin:5px 5px 0 5px;
+}
+#sidebar input[type="text"] {
+	border:1px solid #999;
+	display: inline-block;
+	clear: both;
+	margin:2px 5px 0 5px;
+	padding:2px;
+	width:224px;
+}
+#sidebar input[type="checkbox"] {
+	border:1px solid #999;
+	clear: left;
+	margin:2px 5px 0 5px;
+	vertical-align:bottom;
+}
+#sidebar label {
+	display: block;
+	padding:0 5px 2px 5px;
+	clear:both;
+}
+#model {
+	display: inline-block;
+	position: absolute;
+	left: 250px;
+}
+#canvas {
+	bottom:5px;
+	left: 86px;
+	position:absolute;
+	z-index:1;
+}
+#info {
+	color: #FFFFFF;
+	bottom:5px;
+	font-size:9px;
+	right:5px;
+	position:absolute;
+	text-align:right;
+	z-index:1;
+}
+#info a {
+	color: #FFFFFF;
+	font-weight:bold;
+}
