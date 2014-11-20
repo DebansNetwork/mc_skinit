@@ -67,10 +67,10 @@ $(document).ready(function() {
         //console.log("Failed loading " + img.src);
     }
 
-    // I use minotar because it allows CORS requests.
     downloadButton = document.getElementById('download')
+    mcButton = document.getElementById("upload")
     img.src = 'https://minotar.net/skin/Jake0oo0';
-    downloadButton.href = img.src
+    manageButtons();
 
     function RenderSkin() {
         // Head Parts
@@ -805,20 +805,25 @@ $(document).ready(function() {
         if (keyCode == '13') {
             // Enter pressed, set new image
             img.src = 'https://minotar.net/skin/' + document.getElementById('username').value;
-            downloadButton.href = img.src
+            manageButtons();
         }
     }
     overlayElement = document.getElementById('overlay');
     overlayElement.addEventListener("change", manageOverlay, false)
     function manageOverlay() {
         overlay = overlayElement.value
-        console.log(overlay)
+        //console.log(overlay)
         if (overlay != "none") {
             img.src = "/api/"+document.getElementById('username').value+'?overlay=' + overlay;
         } else {
             img.src = minotarURL();
         }
+        manageButtons();
+    }
+
+    function manageButtons() {
         downloadButton.href = img.src
+        mcButton.href = "http://www.minecraft.net/profile/skin/remote?url=" + img.src
     }
 
     function minotarURL() {
