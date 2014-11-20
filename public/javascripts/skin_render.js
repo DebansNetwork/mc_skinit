@@ -805,7 +805,7 @@ $(document).ready(function() {
         if (keyCode == '13') {
             // Enter pressed, set new image
             img.src = 'https://minotar.net/skin/' + document.getElementById('username').value;
-            downloadButton.href = image.src
+            downloadButton.href = img.src
         }
     }
     overlayElement = document.getElementById('overlay');
