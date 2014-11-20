@@ -68,7 +68,9 @@ $(document).ready(function() {
     }
 
     // I use minotar because it allows CORS requests.
+    downloadButton = document.getElementById('download')
     img.src = 'https://minotar.net/skin/Jake0oo0';
+    downloadButton.href = img.src
 
     function RenderSkin() {
         // Head Parts
@@ -803,6 +805,7 @@ $(document).ready(function() {
         if (keyCode == '13') {
             // Enter pressed, set new image
             img.src = 'https://minotar.net/skin/' + document.getElementById('username').value;
+            downloadButton.href = image.src
         }
     }
     overlayElement = document.getElementById('overlay');
@@ -815,6 +818,7 @@ $(document).ready(function() {
         } else {
             img.src = minotarURL();
         }
+        downloadButton.href = img.src
     }
 
     function minotarURL() {
