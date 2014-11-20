@@ -7,7 +7,7 @@ $(document).ready(function() {
     var radius = 32;
     var alpha = 0;
 
-    var sidebarWidth = 250;
+    var sidebarWidth = 500;
     camera = new THREE.PerspectiveCamera(75, (window.innerWidth - sidebarWidth) / window.innerHeight, 1, 10000);
     camera.position.y = -12;
 
@@ -796,95 +796,6 @@ $(document).ready(function() {
         renderer.render(scene, camera);
     }
 
-    // Handle the sidebar input things
-    // Make checkboxes toggle visibility
-    // headToggle = document.getElementById('headToggle');
-    // headToggle.addEventListener("change", toggleHead, false);
-
-    // function toggleHead() {
-    //     //console.log("toggling head");
-    //     var head = scene.getObjectByName("head", false);
-    //     head.visible = headToggle.checked;
-    //     //console.log(head);
-    // }
-    // leftArmToggle = document.getElementById('leftArmToggle');
-    // leftArmToggle.addEventListener("change", toggleLeftArm, false);
-
-    // function toggleLeftArm() {
-    //     var leftArm = scene.getObjectByName("leftArm", false);
-    //     leftArm.visible = leftArmToggle.checked;
-    // }
-    // rightArmToggle = document.getElementById('rightArmToggle');
-    // rightArmToggle.addEventListener("change", toggleRightArm, false);
-
-    // function toggleRightArm() {
-    //     var rightArm = scene.getObjectByName("rightArm", false);
-    //     rightArm.visible = rightArmToggle.checked;
-    // }
-    // bodyToggle = document.getElementById('bodyToggle');
-    // bodyToggle.addEventListener("change", toggleBody, false);
-
-    // function toggleBody() {
-    //     var body = scene.getObjectByName("body", false);
-    //     body.visible = bodyToggle.checked;
-    // }
-    // leftLegToggle = document.getElementById('leftLegToggle');
-    // leftLegToggle.addEventListener("change", toggleLeftLeg, false);
-
-    // function toggleLeftLeg() {
-    //     var leftLeg = scene.getObjectByName("leftLeg", false);
-    //     leftLeg.visible = leftLegToggle.checked;
-    // }
-    // rightLegToggle = document.getElementById('rightLegToggle');
-    // rightLegToggle.addEventListener("change", toggleRightLeg, false);
-
-    // function toggleRightLeg() {
-    //     var rightLeg = scene.getObjectByName("rightLeg", false);
-    //     rightLeg.visible = rightLegToggle.checked;
-    // }
-    // head2Toggle = document.getElementById('head2Toggle');
-    // head2Toggle.addEventListener("change", toggleHead2, false);
-
-    // function toggleHead2() {
-    //     var head2 = scene.getObjectByName("head2", false);
-    //     head2.visible = head2Toggle.checked;
-    // }
-    // leftArm2Toggle = document.getElementById('leftArm2Toggle');
-    // leftArm2Toggle.addEventListener("change", toggleLeftArm2, false);
-
-    // function toggleLeftArm2() {
-    //     var leftArm2 = scene.getObjectByName("leftArm2", false);
-    //     leftArm2.visible = leftArm2Toggle.checked;
-    // }
-    // rightArm2Toggle = document.getElementById('rightArm2Toggle');
-    // rightArm2Toggle.addEventListener("change", toggleRightArm2, false);
-
-    // function toggleRightArm2() {
-    //     var rightArm2 = scene.getObjectByName("rightArm2", false);
-    //     rightArm2.visible = rightArm2Toggle.checked;
-    // }
-    // body2Toggle = document.getElementById('body2Toggle');
-    // body2Toggle.addEventListener("change", toggleBody2, false);
-
-    // function toggleBody2() {
-    //     var body2 = scene.getObjectByName("body2", false);
-    //     body2.visible = body2Toggle.checked;
-    // }
-    // leftLeg2Toggle = document.getElementById('leftLeg2Toggle');
-    // leftLeg2Toggle.addEventListener("change", toggleLeftLeg2, false);
-
-    // function toggleLeftLeg2() {
-    //     var leftLeg2 = scene.getObjectByName("leftLeg2", false);
-    //     leftLeg2.visible = leftLeg2Toggle.checked;
-    // }
-    // rightLeg2Toggle = document.getElementById('rightLeg2Toggle');
-    // rightLeg2Toggle.addEventListener("change", toggleRightLeg2, false);
-
-    // function toggleRightLeg2() {
-    //     var rightLeg2 = scene.getObjectByName("rightLeg2", false);
-    //     rightLeg2.visible = rightLeg2Toggle.checked;
-    // }
-
     // Change the username
     document.getElementById('username').onkeypress = function(e) {
         if (!e) e = window.event;
@@ -893,5 +804,20 @@ $(document).ready(function() {
             // Enter pressed, set new image
             img.src = 'https://minotar.net/skin/' + document.getElementById('username').value;
         }
+    }
+    overlayElement = document.getElementById('overlay');
+    overlayElement.addEventListener("change", manageOverlay, false)
+    function manageOverlay() {
+        overlay = overlayElement.value
+        console.log(overlay)
+        if (overlay != "none") {
+            img.src = "/api/"+document.getElementById('username').value+'?overlay=' + overlay;
+        } else {
+            img.src = minotarURL();
+        }
+    }
+
+    function minotarURL() {
+        return 'https://minotar.net/skin/' + document.getElementById('username').value
     }
 });

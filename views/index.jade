@@ -1,9 +1,20 @@
 extends layout
 
 block content
-  canvas#canvas(width='64', height='64')
-  #sidebar
-    strong Username
-    input#username(type='text', value='Jake0oo0')
-  #model
+  .container
+    .row
+      .col-md-3
+        p
+          label Username
+          input#username(type='text', value='Jake0oo0', class='form-control')
+        p
+          label Overlay
+          select#overlay(class='form-control')
+            option(value="none") None
+            option(value="referee.png") Referee
+            option(value="santa-hat-1.png") Santa Hat 1
+        canvas#canvas(width='64', height='64', class='center-block')
+      .col-md-9
+        #model
+
 
