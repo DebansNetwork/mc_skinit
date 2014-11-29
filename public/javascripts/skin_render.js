@@ -811,22 +811,22 @@ $(document).ready(function() {
     overlayElement = document.getElementById('overlay');
     overlayElement.addEventListener("change", manageOverlay, false)
     function manageOverlay() {
-        overlay = overlayElement.value
+        overlay = overlayElement.value;
         //console.log(overlay)
         if (overlay != "none") {
             img.src = "/api/"+document.getElementById('username').value+'?overlay=' + overlay;
         } else {
-            img.src = minotarURL();
+            img.src = crafatarURL();
         }
         manageButtons();
     }
 
     function manageButtons() {
-        downloadButton.href = img.src
-        mcButton.href = "http://www.minecraft.net/profile/skin/remote?url=" + img.src
+        downloadButton.href = img.src;
+        mcButton.href = "http://www.minecraft.net/profile/skin/remote?url=" + img.src;
     }
 
-    function minotarURL() {
-        return 'https://crafatar.com/skins/' + document.getElementById('username').value
+    function crafatarURL() {
+        return 'https://crafatar.com/skins/' + document.getElementById('username').value;
     }
 });
