@@ -69,7 +69,7 @@ $(document).ready(function() {
 
     downloadButton = document.getElementById('download')
     mcButton = document.getElementById("upload")
-    img.src = 'https://minotar.net/skin/Jake0oo0';
+    img.src = 'https://crafatar.com/skins/Jake0oo0';
     manageButtons();
 
     function RenderSkin() {
@@ -804,7 +804,7 @@ $(document).ready(function() {
         var keyCode = e.keyCode || e.which;
         if (keyCode == '13') {
             // Enter pressed, set new image
-            img.src = 'https://minotar.net/skin/' + document.getElementById('username').value;
+            img.src = 'https://crafatar.com/skins/' + document.getElementById('username').value;
             manageButtons();
         }
     }
@@ -827,6 +827,6 @@ $(document).ready(function() {
     }
 
     function minotarURL() {
-        return 'https://minotar.net/skin/' + document.getElementById('username').value
+        return 'https://crafatar.com/skins/' + document.getElementById('username').value
     }
 });
