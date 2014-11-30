@@ -808,12 +808,14 @@ $(document).ready(function() {
         }
     }
     overlayElement = document.getElementById('overlay');
-    overlayElement.addEventListener("change", manageOverlay, false)
+    overlayElement.addEventListener("change", manageOverlay, false);
+    helmetElement = document.getElementById('helmet');
+
     function manageOverlay() {
         overlay = overlayElement.value;
         //console.log(overlay)
         if (overlay != "none") {
-            img.src = "/api/image/"+document.getElementById('username').value+'?overlay=' + overlay;
+            img.src = "/api/image/"+document.getElementById('username').value+'?overlay=' + overlay + "&helm=" + helmetElement.checked;
         } else {
             img.src = crafatarURL();
         }
