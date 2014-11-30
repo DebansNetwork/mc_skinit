@@ -822,10 +822,10 @@ $(document).ready(function() {
 
     function manageButtons() {
         setTimeout(function(){
-            var url = "https://skinit.jake0oo0.me/api/decode/" + Base64EncodeUrl(canvas.toDataURL("image/png").replace(/^data:image\/png;base64,/, ""));
+            var url = "http://skinit.jake0oo0.me/api/decode/" + Base64EncodeUrl(canvas.toDataURL("image/png").replace(/^data:image\/png;base64,/, ""));
             console.log("Changed to " + url)
             downloadButton.href = url;
-            mcButton.href = "http://www.minecraft.net/profile/skin/remote?url=" + url;
+            mcButton.href = "https://www.minecraft.net/profile/skin/remote?url=" + url;
 
         }, 1000);
     }

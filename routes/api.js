@@ -4,9 +4,9 @@ var skins = require('../modules/skins')
 
 /* GET home page. */
 router.get('/image/:username', function(req, res) {
-  username = req.params.username
-  skins.overlay(username, req.query.overlay, function(image) {
-    console.log(username)
+  var username = req.params.username;
+  skins.overlay(username, req.query.overlay, true, function(image) {
+    console.log("request: " + username);
     res.writeHead(200, {
       'Content-Type': 'image/png'
     });
