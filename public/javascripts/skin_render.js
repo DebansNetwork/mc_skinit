@@ -35,7 +35,11 @@ $(document).ready(function() {
         side: THREE.DoubleSide
     });
 
+    downloadButton = document.getElementById('download')
+    mcButton = document.getElementById("upload")
+
     var img = new Image();
+    img.onload = manageButtons();
     img.crossOrigin = '';
     var hasAnimate = false;
     img.onload = function() {
@@ -67,11 +71,7 @@ $(document).ready(function() {
         //console.log("Failed loading " + img.src);
     }
 
-    downloadButton = document.getElementById('download')
-    mcButton = document.getElementById("upload")
     img.src = 'https://crafatar.com/skins/Jake0oo0';
-    manageButtons();
-
     function RenderSkin() {
         // Head Parts
         var headTop = [
@@ -805,7 +805,6 @@ $(document).ready(function() {
         if (keyCode == '13') {
             // Enter pressed, set new image
             img.src = 'https://crafatar.com/skins/' + document.getElementById('username').value;
-            manageButtons();
         }
     }
     overlayElement = document.getElementById('overlay');
@@ -814,7 +813,7 @@ $(document).ready(function() {
         overlay = overlayElement.value;
         //console.log(overlay)
         if (overlay != "none") {
-            img.src = "/api/"+document.getElementById('username').value+'?overlay=' + overlay;
+            img.src = "/api/image/"+document.getElementById('username').value+'?overlay=' + overlay;
         } else {
             img.src = crafatarURL();
         }
@@ -822,8 +821,17 @@ $(document).ready(function() {
     }
 
     function manageButtons() {
-        downloadButton.href = img.src;
-        mcButton.href = "http://www.minecraft.net/profile/skin/remote?url=" + img.src;
+        setTimeout(function(){
+            var url = "https://skinit.jake0oo0.me/api/decode/" + Base64EncodeUrl(canvas.toDataURL("image/png").replace(/^data:image\/png;base64,/, ""));
+            console.log("Changed to " + url)
+            downloadButton.href = url;
+            mcButton.href = "http://www.minecraft.net/profile/skin/remote?url=" + url;
+
+        }, 1000);
+    }
+
+    function Base64EncodeUrl(str){
+        return str.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=+$/, '');
     }
 
     function crafatarURL() {

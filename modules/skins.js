@@ -6,7 +6,7 @@ exp.overlay = function(username, overlay, callback) {
   request.get({
     url: "https://crafatar.com/skins/" + username,
     encoding: null,
-    timeout: 1000
+    timeout: 3000
   }, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       lwip.open(body, "png", function(err, image) {
