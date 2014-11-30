@@ -43,6 +43,7 @@ function overlayImage(overlay, image, callback) {
 }
 
 function manageHelmet(remove, image, callback) {
+  console.log(typeof remove)
   if (remove == "true") {
     console.log("removing helmet")
     removeHelmet(image, function(img) {
