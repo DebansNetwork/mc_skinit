@@ -2,11 +2,10 @@ var express = require('express');
 var router = express.Router();
 var skins = require('../modules/skins')
 
-/* GET home page. */
+/* GET image for username. */
 router.get('/image/:username', function(req, res) {
   var username = req.params.username;
   var removeHelmet = req.query.helm;
-  console.log("passed: " + removeHelmet)
   skins.overlay(username, req.query.overlay, removeHelmet, function(image) {
     console.log("request: " + username);
     res.writeHead(200, {
@@ -16,6 +15,7 @@ router.get('/image/:username', function(req, res) {
   });
 });
 
+/* GET a url for uploading from base64 encoding */
 router.get('/decode/:base64', function(req, res) {
   base64Data = Base64DecodeUrl(req.params.base64);
   base64Image = new Buffer(base64Data, 'base64');

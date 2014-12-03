@@ -26,10 +26,10 @@ function getOverlay(overlay, image) {
   var pieces = overlay.split('.png');
   console.log(image.height());
   if (image.height() == 32) {
-    console.log("using old overlay")
-    return pieces[0] + "-old.png"
+    console.log("using old overlay");
+    return pieces[0] + "-old.png";
   } else {
-    console.log("using new overlay")
+    console.log("using new overlay");
     return overlay;
   }
 }
@@ -43,9 +43,8 @@ function overlayImage(overlay, image, callback) {
 }
 
 function manageHelmet(remove, image, callback) {
-  console.log(typeof remove)
   if (remove == "true") {
-    console.log("removing helmet")
+    console.log("removing helmet");
     removeHelmet(image, function(img) {
       callback(img);
     });
